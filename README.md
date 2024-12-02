@@ -11,7 +11,7 @@ To run the program just type;
 ```
 git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd FlappyBird
-./run
+./run.sh
 ```
 
 it is made with Swing and Graphics class. It was just made for fun and may contain many bugs and it does not have nay sound effect, it would be great if you could hep me out with it ..
