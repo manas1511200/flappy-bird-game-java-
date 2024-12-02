@@ -5,7 +5,14 @@ Some main features of the game are:
 1. It can save the scores and attempt number in the folder(by using Files class);
 2. the bird rotates when you press the up or space button.
 The code here consists of comments
-To run the program just type
+To run the program just type;
+## Usage
+
+```
+git clone https://github.com/stronglink/FlappyBird.git
+cd FlappyBird
+./run
+```
 
 it is made with Swing and Graphics class. It was just made for fun and may contain many bugs and it does not have nay sound effect, it would be great if you could hep me out with it ..
 
