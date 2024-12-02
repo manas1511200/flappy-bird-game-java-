@@ -9,7 +9,7 @@ To run the program just type;
 ## Usage
 
 ```
-git clone https://github.com/stronglink/FlappyBird.git
+git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd FlappyBird
 ./run
 ```
