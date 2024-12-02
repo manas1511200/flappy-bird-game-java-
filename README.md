@@ -1,3 +1,4 @@
+![Alt text](https://imgur.com/a/Rv8Z6UW)
 # flappy-bird-game-java-
 Here's a simple flappy Bird game for Beginners;
 it Consists of main class called App.java that runs the main code. The flappyBird.java is the file where all logic and the game is build on the top of the JPanel.
@@ -14,5 +15,6 @@ cd flappyBird
 ./run.sh
 ```
 
-it is made with Swing and Graphics class. It was just made for fun and may contain many bugs and it does not have nay sound effect, it would be great if you could hep me out with it ..
+it is made with Swing and Graphics class. 
+It was just made for fun and may contain many bugs and it does not have not sound effect, it would be great if you could hep me out with it ..
 
