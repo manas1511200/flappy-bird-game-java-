@@ -13,7 +13,8 @@ To run the program just type;
 [ -d "flappy-bird-game-java-" ] && rm -r "flappy-bird-game-java-"
  git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd flappy-bird-game-java-
-chmod +x ./run.sh && ./run.sh 
+chmod +x ./run.sh
+ ./run.sh 
 
 ```
 
