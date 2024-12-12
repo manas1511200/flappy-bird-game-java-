@@ -10,11 +10,15 @@ To run the program just type;
 ## Usage
 
 ```
-[ -d "FlappyBird" ] && rm -r "FlappyBird"
-
+[ -d "flappy-bird-game-java-" ] && rm -r "flappy-bird-game-java-"
 git clone https://github.com/manas1511200/flappy-bird-game-java-.git
-cd FlappyBird
-./run.sh
+cd flappy-bird-game-java-
+if [ -f "./run.sh" ]; then
+    ./run.sh
+else
+    echo "run.sh file not found!"
+fi
+
 ```
 
 it is made with Swing and Graphics class. 
