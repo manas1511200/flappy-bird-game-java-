@@ -1,7 +1,7 @@
 
 
 
-
+import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
@@ -95,6 +95,7 @@ public static Clip getSound(String path) {
 			else {
 				path = path.substring(path.indexOf("/") + 1);
 				clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
+				clp.start();
 			}
 	    } catch (Exception e) {
 	    	e.printStackTrace();
