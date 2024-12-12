@@ -10,9 +10,9 @@ To run the program just type;
 ## Usage
 
 ```
-i[ ! -d "flappy-bird-game-java-" ] && git clone https://github.com/manas1511200/flappy-bird-game-java-.git
+ git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd flappy-bird-game-java-
-[ -f "./run.sh" ] && chmod +x ./run.sh && ./run.sh || echo "run.sh file not found!"
+chmod +x ./run.sh && ./run.sh 
 
 ```
 
