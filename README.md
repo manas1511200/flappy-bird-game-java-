@@ -10,11 +10,10 @@ To run the program just type;
 ## Usage
 
 ```
-[ -d "flappy-bird-game-java-" ] && rm -r "flappy-bird-game-java-"
- git clone https://github.com/manas1511200/flappy-bird-game-java-.git
-cd flappy-bird-game-java-
-chmod +x ./run.sh
- ./run.sh 
+[ -d "flappy-bird-game-java-" ] && rm -rf "flappy-bird-game-java-"
+git clone https://github.com/manas1511200/flappy-bird-game-java-.git
+cd flappy-bird-game-java- || exit
+chmod +x ./run.sh && ./run.sh
 
 ```
 
