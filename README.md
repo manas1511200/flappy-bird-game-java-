@@ -10,7 +10,8 @@ To run the program just type;
 ## Usage
 
 ```
-rm FlappyBird
+[ -d "FlappyBird" ] && rm -r "FlappyBird"
+
 git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd FlappyBird
 ./run.sh
