@@ -5,6 +5,12 @@
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -51,6 +57,10 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
                     birdVelocity = jumpHeight;
+                    Clip clip = getSound("jump.wav");
+            if (clip != null) {
+                clip.start();  
+            }
                 }
             }
         });
@@ -74,7 +84,24 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
         }
 
     }
-
+public static Clip getSound(String path) {
+		File file = new File(path);
+		Clip clip = null;
+		try {
+			clip = AudioSystem.getClip();
+			
+			if(file.exists())
+				clip.open(AudioSystem.getAudioInputStream(file));
+			else {
+				path = path.substring(path.indexOf("/") + 1);
+				clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
+			}
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+		return clip;
+	}
+	
     private void updatePipes(ActionEvent e) {
         for (int i = 0; i < 3; i++) {
             pipeX[i] -= 2;
@@ -131,6 +158,10 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
             Rectangle bottomPipeRect = new Rectangle(pipeX[i], pipeY[i] + pipeGap, bottomPipe.getWidth(null) / 7, bottomPipe.getHeight(null) / 7);
 
             if (birdRect.intersects(topPipeRect) || birdRect.intersects(bottomPipeRect)) {
+            Clip clip = getSound("hit.wav");
+            if (clip != null) {
+                clip.start();  
+            }
                 birdTimer.stop();
                 pipeTimer.stop();
                 popupState = 0;
@@ -142,6 +173,10 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
             }
 
             if (!pipePassed[i] && birdX > pipeX[i] + topPipe.getWidth(null) / 7) {
+             Clip clip = getSound("point.wav");
+            if (clip != null) {
+                clip.start();  
+            }
                 score++;
                 pipePassed[i] = true;
             }
