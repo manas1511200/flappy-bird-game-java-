@@ -10,18 +10,9 @@ To run the program just type;
 ## Usage
 
 ```
-if [ -d "flappy-bird-game-java-" ]; then
-    echo "Repository already exists. Skipping clone."
-else
-    git clone https://github.com/manas1511200/flappy-bird-game-java-.git
-fi
-
+i[ ! -d "flappy-bird-game-java-" ] && git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd flappy-bird-game-java-
-
-if [ -f "./run.sh" ]; then
-    chmod +x ./run.sh
-    ./run.sh
-
+[ -f "./run.sh" ] && chmod +x ./run.sh && ./run.sh || echo "run.sh file not found!"
 
 ```
 
