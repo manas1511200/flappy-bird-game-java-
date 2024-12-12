@@ -95,7 +95,7 @@ public static Clip getSound(String path) {
 			else {
 				path = path.substring(path.indexOf("/") + 1);
 				clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
-				clp.start();
+				clip.start();
 			}
 	    } catch (Exception e) {
 	    	e.printStackTrace();
