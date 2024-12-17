@@ -61,6 +61,9 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
             if (clip != null) {
                 clip.start();  
             }
+		 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                System.exit(0);  // Close the application
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             // Restart the game when Enter key is pressed
             restartGame();
