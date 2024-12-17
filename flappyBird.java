@@ -300,6 +300,7 @@ public static Clip getSound(String path) {
         JPanel bpanel = new JPanel();
         bpanel.add(okButton);
         bpanel.add(clearAll);
+	bpanel.add(exit);
         
         frame.add(new JScrollPane(scoreList), BorderLayout.CENTER);
         frame.add(scoreLabel, BorderLayout.NORTH);
