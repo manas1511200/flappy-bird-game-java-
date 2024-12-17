@@ -93,20 +93,19 @@ public static Clip getSound(String path) {
     Clip clip = null;
     try {
         clip = AudioSystem.getClip();
-        
         if (file.exists()) {
             clip.open(AudioSystem.getAudioInputStream(file));
         } else {
             path = path.substring(path.indexOf("/") + 1);
             clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
         }
-
-        if (clip.isRunning()) {
-            clip.stop();  // Stop the sound if it's already playing
-        }
-        clip.setFramePosition(0);  // Reset to the start of the clip
-        clip.start();
-    } catch (Exception e) {
+    } catch (LineUnavailableException e) {
+        System.out.println("Audio line format not supported: " + e.getMessage());
+        e.printStackTrace();
+    } catch (UnsupportedAudioFileException e) {
+        System.out.println("Audio file format not supported: " + e.getMessage());
+        e.printStackTrace();
+    } catch (IOException e) {
         e.printStackTrace();
     }
     return clip;
