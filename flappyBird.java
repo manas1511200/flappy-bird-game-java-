@@ -62,8 +62,12 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
                 clip.start();  
             }
 		 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                System.exit(0);  // Close the application
-            }
+        // Dispose the game window (close it)
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(flappyBird.this);
+        if (frame != null) {
+            frame.dispose();
+        }
+    }
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             // Restart the game when Enter key is pressed
             restartGame();
