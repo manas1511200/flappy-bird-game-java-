@@ -52,18 +52,22 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
         pipeX[1] = getWidth() + getWidth()/3;
         pipeX[2] = getWidth() + 2*(getWidth()/3);
         setFocusable(true);
-        addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
-                    birdVelocity = jumpHeight;
-                    Clip clip = getSound("jump.wav");
+      addKeyListener(new KeyAdapter() {
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
+            birdVelocity = jumpHeight;
+            Clip clip = getSound("jump.wav");
             if (clip != null) {
                 clip.start();  
             }
-                }
-            }
-        });
+        } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            // Restart the game when Enter key is pressed
+            restartGame();
+        }
+    }
+});
+
 
 
         birdTimer = new Timer(1000 / 50, this::updateBird);
@@ -85,23 +89,29 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
 
     }
 public static Clip getSound(String path) {
-		File file = new File(path);
-		Clip clip = null;
-		try {
-			clip = AudioSystem.getClip();
-			
-			if(file.exists())
-				clip.open(AudioSystem.getAudioInputStream(file));
-			else {
-				path = path.substring(path.indexOf("/") + 1);
-				clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
-				clip.start();
-			}
-	    } catch (Exception e) {
-	    	e.printStackTrace();
-	    }
-		return clip;
-	}
+    File file = new File(path);
+    Clip clip = null;
+    try {
+        clip = AudioSystem.getClip();
+        
+        if (file.exists()) {
+            clip.open(AudioSystem.getAudioInputStream(file));
+        } else {
+            path = path.substring(path.indexOf("/") + 1);
+            clip.open(AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResource(path)));
+        }
+
+        if (clip.isRunning()) {
+            clip.stop();  // Stop the sound if it's already playing
+        }
+        clip.setFramePosition(0);  // Reset to the start of the clip
+        clip.start();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return clip;
+}
+
 	
     private void updatePipes(ActionEvent e) {
         for (int i = 0; i < 3; i++) {
@@ -226,40 +236,53 @@ public static Clip getSound(String path) {
     }
 
     private void showPopup() {
-        loadScores();
-        if (popupState == 0) {
-            popupState++;
-            JFrame frame = new JFrame();
-            frame.setFocusable(true);
-            frame.requestFocus();
-            frame.setLocationRelativeTo(null);
-            frame.setLayout(new BorderLayout());
-            Button clearAll = new Button("Clear All");
-            clearAll.addActionListener(e -> {
-                file.delete();
-                attempt.delete();
-                saveScore();
-                loadScores();
+    loadScores();
+    if (popupState == 0) {
+        popupState++;
+        JFrame frame = new JFrame();
+        frame.setFocusable(true);
+        frame.requestFocus();
+        frame.setLocationRelativeTo(null);
+        frame.setLayout(new BorderLayout());
+        
+        Button clearAll = new Button("Clear All");
+        clearAll.addActionListener(e -> {
+            file.delete();
+            attempt.delete();
+            saveScore();
+            loadScores();
+        });
 
-            });
-            JLabel scoreLabel = new JLabel("Your Current Score: " + score, SwingConstants.CENTER);
-            JButton okButton = new JButton("OK");
-            okButton.addActionListener(e -> {
-                frame.dispose();
-                restartGame();
-            });
-            JPanel bpanel = new JPanel();
-            bpanel.add(okButton);
-            bpanel.add(clearAll);
-            frame.add(new JScrollPane(scoreList), BorderLayout.CENTER);
-            frame.add(scoreLabel, BorderLayout.NORTH);
-            frame.add(bpanel, BorderLayout.SOUTH);
-            frame.setSize(300, 300);
-            frame.setVisible(true);
+        JLabel scoreLabel = new JLabel("Your Current Score: " + score, SwingConstants.CENTER);
+        JButton okButton = new JButton("OK");
+        okButton.addActionListener(e -> {
+            frame.dispose();
+            restartGame();
+        });
 
+        // Add replay functionality when Enter is pressed
+        frame.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    restartGame();
+                    frame.dispose();
+                }
+            }
+        });
 
-        }
+        JPanel bpanel = new JPanel();
+        bpanel.add(okButton);
+        bpanel.add(clearAll);
+        
+        frame.add(new JScrollPane(scoreList), BorderLayout.CENTER);
+        frame.add(scoreLabel, BorderLayout.NORTH);
+        frame.add(bpanel, BorderLayout.SOUTH);
+        frame.setSize(300, 300);
+        frame.setVisible(true);
     }
+}
+
 
     private void restartGame() {
         birdX = 150;
