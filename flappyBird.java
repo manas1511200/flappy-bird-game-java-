@@ -57,10 +57,7 @@ bottomPipe = new ImageIcon(Objects.requireNonNull(getClass().getResource("bottom
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
             birdVelocity = jumpHeight;
-            Clip clip = getSound("jump.wav");
-            if (clip != null) {
-                clip.start();  
-            }
+	}
 		 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
         // Dispose the game window (close it)
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(flappyBird.this);
