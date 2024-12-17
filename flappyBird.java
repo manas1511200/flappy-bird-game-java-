@@ -263,7 +263,14 @@ public static Clip getSound(String path) {
         frame.requestFocus();
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
-        
+        Button exit  = new Button("EXIT");
+	    exit.addActionListener(e -> {
+    JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(frame);
+    if (parentFrame != null) {
+        parentFrame.dispose();  // Close the window
+    }
+});
+
         Button clearAll = new Button("Clear All");
         clearAll.addActionListener(e -> {
             file.delete();
