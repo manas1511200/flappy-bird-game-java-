@@ -2,7 +2,7 @@
 
 This is a simple Flappy Bird game designed for beginners. The project is structured with two main files:
 
-- **App.![Uploading Screenshot From 2025-01-01 17-40-04.png…]()
+- **App.
 java**: The main class that initiates and runs the game.
 - **FlappyBird.java**: Contains the game logic and is built on top of `JPanel`.
 
