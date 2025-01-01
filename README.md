@@ -2,7 +2,6 @@
 # flappy-bird-game-java-
 Here's a simple flappy Bird game for Beginners;
 
-![Uploading Screenshot From 2025-01-01 17-40-04.png…]()
 
 
 it Consists of main class called App.java that runs the main code. The flappyBird.java is the file where all logic and the game is build on the top of the JPanel.
