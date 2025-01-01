@@ -2,7 +2,8 @@
 
 This is a simple Flappy Bird game designed for beginners. The project is structured with two main files:
 
-- **App.java**: The main class that initiates and runs the game.
+- **App.![Uploading Screenshot From 2025-01-01 17-40-04.png…]()
+java**: The main class that initiates and runs the game.
 - **FlappyBird.java**: Contains the game logic and is built on top of `JPanel`.
 
 ## Features
@@ -25,7 +26,7 @@ chmod +x ./run.sh && ./run.sh
 
 ## Improvements
 
-Currently, the game does not include sound effects. Contributions are welcome to add sound or improve other aspects of the game. Feel free to fork the repository and submit a pull request!
+Contributions are welcome to improve  aspects of the game. Feel free to fork the repository and submit a pull request!
 
 ---
 
