@@ -1,25 +1,34 @@
+# Flappy Bird Game in Java
 
-# flappy-bird-game-java-
-Here's a simple flappy Bird game for Beginners;
+This is a simple Flappy Bird game designed for beginners. The project is structured with two main files:
 
+- **App.java**: The main class that initiates and runs the game.
+- **FlappyBird.java**: Contains the game logic and is built on top of `JPanel`.
 
+## Features
 
-it Consists of main class called App.java that runs the main code. The flappyBird.java is the file where all logic and the game is build on the top of the JPanel.
-Some main features of the game are:
-1. It can save the scores and attempt number in the folder(by using Files class);
-2. the bird rotates when you press the up or space button.
-The code here consists of comments
-To run the program just type;
+1. **Score Saving**: The game saves scores and attempt numbers in a folder using the `Files` class.
+2. **Bird Rotation**: The bird rotates when you press the "Up" arrow key or the space bar.
+
+The code includes comments for better understanding and is built using Java's Swing and Graphics classes. This project was created for fun and may contain bugs.
+
 ## Usage
 
-```
+To run the program, execute the following commands in your terminal:
+
+```bash
 [ -d "flappy-bird-game-java-" ] && rm -rf "flappy-bird-game-java-"
 git clone https://github.com/manas1511200/flappy-bird-game-java-.git
 cd flappy-bird-game-java- || exit
 chmod +x ./run.sh && ./run.sh
-
 ```
 
-it is made with Swing and Graphics class. 
-It was just made for fun and may contain many bugs and it does not have not sound effect, it would be great if you could hep me out with it ..
+## Improvements
 
+Currently, the game does not include sound effects. Contributions are welcome to add sound or improve other aspects of the game. Feel free to fork the repository and submit a pull request!
+
+---
+
+### Notes
+- The game is built for educational purposes and may not be fully optimized.
+- If you encounter any issues or have suggestions, please open an issue in the repository.
