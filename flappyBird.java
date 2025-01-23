@@ -23,7 +23,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.List;
 
-class flappyBird extends JPanel {
+public class flappyBird extends JPanel {
 
     private final Timer pipeTimer, birdTimer;
     private int score = -3;
