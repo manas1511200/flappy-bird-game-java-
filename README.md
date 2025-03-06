@@ -5,6 +5,7 @@ This is a simple Flappy Bird game designed for beginners. The project is structu
 - **App.
 java**: The main class that initiates and runs the game.
 - **FlappyBird.java**: Contains the game logic and is built on top of `JPanel`.
+![Screenshot From 2025-03-06 07-32-02](https://github.com/user-attachments/assets/c346e10d-c4de-472f-aacd-a32187768ffb)
 
 ## Features
 
